@@ -29,7 +29,7 @@ app = FastAPI()
 # --- Middleware ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # sesuaikan dengan FE
+    allow_origins=["*"],  # sesuaikan dengan FE
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -42,7 +42,7 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- Model ---
-model = YOLO("yolov8x.pt")
+model = YOLO("models/yolov8n.pt")
 model.fuse()
 
 # --- Progress Store ---
